@@ -7,27 +7,27 @@ Onitama is a simple game with very rewarding depth. Rules for how to play the ga
 The game runs in the terminal against an AI opponent as the blue player. Run main.py in the terminal and it will print out an initial board state similar to the 
 following:
 
-          -----     -----
-          -x-x-     -----             
-          --o--     -xox-  <-(The blue player's starting hand of two random cards. An "o" is a position of a piece to move and an "x" is a position to move to.)              
-          x---x     --x--                
-          -----     -----                
-          _______________                
-         | b  b  B  b  b |  <-(This is the top of the board and the blue pieces. "B" for the blue master pawn and "b" for regular blue pawns.)            
-         |               |               
+\          -----     -----
+\          -x-x-     -----             
+\          --o--     -xox-  <-(The blue player's starting hand of two random cards. An "o" is a position of a piece to move and an "x" is a position to move to.)         
+ \         x---x     --x--                
+ \         -----     -----                
+\          _______________                
+\         | b  b  B  b  b |  <-(This is the top of the board and the blue pieces. "B" for the blue master pawn and "b" for regular blue pawns.)            
+\         |               |               
  -----   | -  -  -  -  - |   -----       
  -----   |               |   -x-x-       
  -----   | -  -  -  -  - |   --o--  <-(Cards move clockwise around the board. So this card will be added to the red player's hand after their next move.)
  -----   |               |   --x--
  -----   | -  -  -  -  - |   -----
-         |               |
-         | r  r  R  r  r |  <-(This is the bottom of the board and the red pieces. "R" for the red master pawn and "r" for the regular red pawns.)
-          _______________
-          -----     -----
-          ---x-     -x---
-          -xo--     x-o--  <-(The red player's starting hand of two random cards)
-          ---x-     ---x-
-          -----     -----
+\         |               |
+\         | r  r  R  r  r |  <-(This is the bottom of the board and the red pieces. "R" for the red master pawn and "r" for the regular red pawns.)
+\          _______________
+\          -----     -----
+\          ---x-     -x---
+\          -xo--     x-o--  <-(The red player's starting hand of two random cards)
+\          ---x-     ---x-
+\          -----     -----
 
 ## Input
 You will be prompted for input on your turns. At the moment, the formatting for input is rather clunky.
