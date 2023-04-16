@@ -4,6 +4,8 @@ import random
 import numpy as np
 import copy
 
+# This class is based around the Game class from the public repo of code for the book "Artificial Intelligence: A Modern Approach"
+# https://github.com/aimacode
 class Onitama:
     """A game is similar to a problem, but it has a utility for each
     state and a terminal test instead of a path cost and a goal

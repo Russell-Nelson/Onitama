@@ -16,7 +16,8 @@ def evaluation2(state):
         return len(state.blue_player.pawns) - len(state.red_player.pawns)
 
 
-
+# This algorithm is pulled from the public repo of code for the book "Artificial Intelligence: A Modern Approach"
+# https://github.com/aimacode
 def alpha_beta_cutoff_search(state, game, d=4, cutoff_test=None, eval_fn=None):
     """Search game to determine best action; use alpha-beta pruning.
     This version cuts off search and uses an evaluation function."""
