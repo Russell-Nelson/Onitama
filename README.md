@@ -19,7 +19,7 @@ column (also zero indexed). So (4,2) indicates the red master pawn ("R") in the 
 
 The middle letter of the input can be either "L" or "R". This indicates whether you would like to use the movement card on the left hand side of your player area or the movement card on the right hand side of your play area. In the above example, "L" indicates that the following movement card will be used by the red player:
 
-<p align="center"><img src="Card Formatting.png" alt="issues location" width="100%"></p>
+<p align="center"><img src="Card Formatting.png" alt="issues location" width="10%"></p>
 
 Finally, the second pair of numbers, (3,3), represents the location that the piece will move to. This location must be a legal move for the combination of piece
 and card chosen. If you enter an illegal move or improper formatting, then the game will re-prompt you for input.
