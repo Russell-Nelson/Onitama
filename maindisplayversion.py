@@ -7,6 +7,8 @@ import copy
 from display import Display
 import pygame
 import sys
+from dragger import Dragger
+from const import *
 
 # returns a move object if the input is valid. Otherwise returns None
 def format_input(user_input, state):
@@ -47,15 +49,39 @@ game = onitama.Onitama()
 while onitama_game.game_is_over() not in ["red wins", "blue wins"]:
     onitama_game.print_game_state()
 
-    # display = Display()
-    # display.show_bg()
-    # display.show_pawns(onitama_game)
-    # for event in pygame.event.get():
-    #     if event.type == pygame.QUIT:
-    #         pygame.quit()
-    #         sys.exit()
+    display = Display()
+    display.show_bg()
+    display.show_pawns(onitama_game)
+    for event in pygame.event.get():
+
+        # click
+        if (event.type == pygame.MOUSEBUTTONDOWN):
+            dragger.update_mouse(event.pos)
+
+            clicked_row = dragger.mouseY // SQSIZE
+            clicked_col = dragger.mouseX // SQSIZE
+
+            # check if there is a piece in that spot
+            if (onitama_game.board[clicked_row][clicked_col].pawn != None):
+                pawn = onitama_game.board[clicked_row][clicked_col].pawn
+                dragger.save_initial(event.pos)
+                dragger.drag_pawn(pawn)
+
+        # mouse motion
+        elif event.type == pygame.MOUSEMOTION:
+            if dragger.dragging:
+                dragger.update_blit(display.screen)
+
+        # click release
+        elif event.type == pygame.MOUSEBUTTONUP:
+            pass
+        
+        # quit application        
+        elif event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
     
-    # pygame.display.update()
+    pygame.display.update()
 
     # AI controls the blue player
     if (onitama_game.current_player.color == "blue"):

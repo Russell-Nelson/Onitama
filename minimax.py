@@ -1,6 +1,8 @@
 from onitama import Onitama
 import numpy as np
 
+total_states = 0
+
 # blue winning gives a higher positive value
 def evaluation(state):
     eval = 0
@@ -14,6 +16,24 @@ def evaluation2(state):
         return -10
     else:
         return len(state.blue_player.pawns) - len(state.red_player.pawns)
+
+# adds in some basic positional value
+def evaluation3(state):
+    if (state.game_is_over() == "blue wins"):
+        return 10
+    elif (state.game_is_over() == "red wins"):
+        return -10
+    
+    ret_value = len(state.blue_player.pawns) - len(state.red_player.pawns)
+
+    for pawn in state.blue_player.pawns:
+        # counts distances from the bottom of the board. Maxes out at .5 if everything is up top
+        ret_value -= abs(pawn.coordinates[0] - 4) / 40
+
+        # counts distances from the center of the board. Maxes out at .4 if everything is in the center
+        ret_value -= abs(pawn.coordinates[1] - 2) / 25
+    
+    return ret_value
 
 
 # This algorithm is pulled from the public repo of code for the book "Artificial Intelligence: A Modern Approach"
