@@ -11,3 +11,5 @@ class Card:
         self.starting_color = starting_color
 
         self.movement = movement
+
+        self.texture = f'images\cards\{self.name}.png'

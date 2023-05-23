@@ -99,3 +99,20 @@ class Move:
         player = simulated_state.current_player
         self.perform_move(simulated_state, player)
         return simulated_state
+
+
+    def will_capture(self, state):
+        card = state.current_player.hand[self.card_index]
+        
+        movement = card.movement[self.movement_index]
+
+        # mirror the movement if it is for the blue player
+        if (state.current_player.color == "blue"):
+            movement = (-movement[0], -movement[1])
+        
+        dest_row = self.piece_row + movement[0]
+        dest_col = self.piece_column + movement[1]
+
+        destination = state.board[dest_row][dest_col]
+        is_empty = (destination.pawn == None)
+        return not is_empty

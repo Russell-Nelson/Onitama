@@ -15,6 +15,18 @@ def evaluation2(state):
     else:
         return len(state.blue_player.pawns) - len(state.red_player.pawns)
 
+def evaluation3(state):
+    if (state.game_is_over() == "blue wins"):
+        return 10
+    elif (state.game_is_over() == "red wins"):
+        return -10
+    else:
+        ret_value = len(state.blue_player.pawns) - len(state.red_player.pawns)
+        for pawn in state.blue_player.pawns:
+            ret_value -= abs(pawn.coordinates[0] - 4) / 40
+            ret_value -= abs(pawn.coordinates[1] - 2) / 25
+        return ret_value
+
 
 # This algorithm is pulled from the public repo of code for the book "Artificial Intelligence: A Modern Approach"
 # https://github.com/aimacode
